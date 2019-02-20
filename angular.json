@@ -23,9 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "/home/admin1/Desktop/edwisor/adv-angular/chat-app/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "/home/admin1/Desktop/edwisor/adv-angular/chat-app/node_modules/jquery/dist/jquery.min.js",
+              "/home/admin1/Desktop/edwisor/adv-angular/chat-app/node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
