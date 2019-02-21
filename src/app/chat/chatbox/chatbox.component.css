@@ -15,6 +15,14 @@
   border-radius: 50%;
   display: inline-block;
 }
+.unseenOnline{
+
+  height: 10px;
+  width: 10px;
+  background-color:rgb(0, 140, 255);
+  border-radius: 50%;
+  display: inline-block;
+}
 
 
 .rightSideClass {

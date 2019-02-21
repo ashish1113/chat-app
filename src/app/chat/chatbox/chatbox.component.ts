@@ -86,11 +86,12 @@ export class ChatboxComponent implements OnInit {
 
 
    
-    this.getOnlineUserList()//dekhana hoga
+    //dekhana hoga
     this.getMessageFromAUser()
     this.getUnseenChatOfUser();
+    this.getOnlineUserList()
     // this.getUnseenChatMessageofUser("Bv7yHlQvU");
-
+    //alert("press F5 or reload to see all unseen messages");
     
   }
   /*public checkStatus: any = () => {
@@ -130,12 +131,12 @@ export class ChatboxComponent implements OnInit {
 
     this.SocketService.onlineUserList()
       .subscribe((userList) => {
-
+        console.log(userList);
         this.userList = [];
 
         for (let x in userList) {
 
-          let temp = { 'userId': x, 'name': userList[x], 'unread': 0, 'chatting': false };
+          let temp = { 'userId': x, 'name': userList[x], 'unread': 0, 'chatting': false ,'flag':0 };
 
           this.userList.push(temp);
 
@@ -361,18 +362,26 @@ public getUnseenChatOfUser:any = () =>{
         if(this.unSeenUserList[x].userId == this.userList[y].userId){
           this.unSeenOnlineUserList.push(this.unSeenUserList[x]);
           this.unSeenUserList.splice(x,1)
-           
+         
         }
+        console.log(this.unSeenOnlineUserList);
+
       }
     }
   
 
-    console.log(this.unSeenUserList+'----------------');
+    console.log(this.unSeenUserList);
     console.log(this.unSeenOnlineUserList);
 
     
-    
-
+    for(let x in this.unSeenOnlineUserList)
+    {
+      for(let y in this.userList)
+      {
+        this.checkFlag(this.userList[y],this.unSeenOnlineUserList[x]);
+      }
+    }
+    console.log(this.userList);
 
     
     
@@ -492,6 +501,21 @@ public loadUnseenEarlierPageOfChat: any = () => {
   this.pageValue1++;
 
 } 
+
+public checkFlag(userListObj,unSeenOnlineUserListObj)
+{
+  if(unSeenOnlineUserListObj.userId == userListObj .userId)
+  {
+    userListObj.flag = 1;
+
+  }
+  else if (userListObj.flag == 1)
+      {
+        userListObj.flag = 1;
+      }
+
+      console.log(userListObj.flag +'++++++++++++')
+}
 
 
 
